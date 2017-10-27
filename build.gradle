@@ -15,6 +15,10 @@ apply plugin: 'application'
 
 mainClassName = 'com.adamarla.ids.DriverKt'
 
+run {
+    args = [ "input", "output" ]
+}
+
 repositories {
     mavenCentral()
 }
