@@ -20,11 +20,10 @@ class ContributionsDistiller(val parser: IContributionRecordParser) {
                 aggregators.map { it.add(contribution!!) }
             }
 
-    fun report(location: File) {
+    fun report(location: File) =
         aggregators.map {
             it.report(location.resolve(it.fileName).bufferedWriter())
         }
-    }
 
 }
 

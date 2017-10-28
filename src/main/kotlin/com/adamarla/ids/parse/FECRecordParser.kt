@@ -21,7 +21,7 @@ class FECRecordParser: IContributionRecordParser {
         get() = tokens[RECIPIENT_ID_IDX]
     private val contributorZip
         get() = if (tokens[CONTRIBUTOR_ZIP_IDX].matches(ZIP))
-        tokens[CONTRIBUTOR_ZIP_IDX] else null
+        tokens[CONTRIBUTOR_ZIP_IDX].substring(0..4) else null
     private val transactionDate
         get() = try {
             DATE_FORMAT.parse(tokens[TRANSACTION_DT_IDX])
@@ -43,6 +43,6 @@ class FECRecordParser: IContributionRecordParser {
         private val AMOUNT_IDX = 14
         private val OTHER_ID_IDX = 15 // Non-individual contributions
         private val DATE_FORMAT = DateTimeFormatter.ofPattern("ddMMyyyy")
-        private val ZIP = Regex("""\d{5}""")
+        private val ZIP = Regex("""\d{5,}""") // 5 digits or more
     }
 }

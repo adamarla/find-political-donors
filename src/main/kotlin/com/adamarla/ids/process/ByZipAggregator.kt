@@ -9,7 +9,10 @@ import com.adamarla.ids.data.Contribution
 class ByZipAggregator: Aggregator<ByZip>("median_val_byzip.txt") {
 
     override fun compositeKey(contribution: Contribution) =
-            "${contribution.recipientId}-${contribution.contributorZip}"
+            Pair(contribution.recipientId, contribution.contributorZip!!)
+
+    override val sortedRecords: List<ByZip>
+        get() = records.toList()
 
     override fun add(contribution: Contribution) {
         contribution.contributorZip?.let {
@@ -18,6 +21,8 @@ class ByZipAggregator: Aggregator<ByZip>("median_val_byzip.txt") {
                     Math.round((totals.amount / totals.count).toFloat()), totals.count, totals.amount))
         }
     }
+
+    private val records = mutableListOf<ByZip>()
 
 }
 
