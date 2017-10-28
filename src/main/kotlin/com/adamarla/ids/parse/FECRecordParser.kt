@@ -42,7 +42,7 @@ class FECRecordParser: IContributionRecordParser {
         private val TRANSACTION_DT_IDX = 13
         private val AMOUNT_IDX = 14
         private val OTHER_ID_IDX = 15 // Non-individual contributions
-        private val DATE_FORMAT = DateTimeFormatter.ofPattern("ddMMyyyy")
+        private val DATE_FORMAT = DateTimeFormatter.ofPattern("MMddyyyy")
         private val ZIP = Regex("""\d{5,}""") // 5 digits or more
     }
 }

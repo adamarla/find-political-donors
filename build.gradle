@@ -16,7 +16,10 @@ apply plugin: 'application'
 mainClassName = 'com.adamarla.ids.DriverKt'
 
 run {
-    args = [ "input", "output" ]
+    if (project.hasProperty("inputDir") && project.hasProperty("outputDir"))
+        args = [ project.inputDir, project.outputDir ]
+    if (project.hasProperty("bufferSize"))
+        args += project.bufferSize
 }
 
 test {

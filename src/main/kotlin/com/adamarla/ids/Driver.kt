@@ -9,17 +9,25 @@ import java.io.File
 
 fun main(args: Array<String>) {
 
-    val bufferSize = if (args.size > 2 && args[1].toInt() > 0) args[1].toInt() else 1024
+    if (args.size < 2) {
+        printUsage()
+        return
+    }
 
+    val bufferSize: Int? = if (args.size > 2) args[2].toInt() else null
     val parser: IContributionRecordParser = FECRecordParser()
     val distiller = ContributionsDistiller(parser)
-    distiller.aggregators + ByDateAggregator()
-    distiller.aggregators + ByZipAggregator()
+    distiller.aggregators.add(ByDateAggregator())
+    distiller.aggregators.add(ByZipAggregator())
 
-    val reader = File(args[0]).resolve("itcont.txt").bufferedReader(bufferSize = bufferSize)
-    distiller.process(reader)
+    distiller.process(File(args[0]), bufferSize)
     distiller.report(File(args[1]))
-
-    println("Insights Data Engineering!")
 }
 
+fun printUsage() {
+    println("""To run, specify input and output directories as
+        |arguments to pass to the to the gradle script.
+        |
+        |gradle run -PinputDir=input -PoutputDir=output
+    """.trimMargin())
+}

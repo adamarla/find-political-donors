@@ -17,6 +17,7 @@ abstract class Aggregator<out T>(val fileName: String) {
             writer.write(it.toString())
             writer.newLine()
         }
+        writer.close()
     }
 
     protected fun updateTotals(amount: Int, key: Pair<String, String>): RunningTotal {

@@ -6,7 +6,7 @@ import com.adamarla.ids.data.Contribution
 /**
  * Created by adamarla on 10/25/17.
  */
-class ByDateAggregator: Aggregator<ByDate>("medial_val_bydate.txt") {
+class ByDateAggregator: Aggregator<ByDate>("medianvals_by_date.txt") {
 
     override fun compositeKey(contribution: Contribution) =
             Pair(contribution.recipientId, contribution.transactionDate!!)
@@ -25,6 +25,6 @@ class ByDateAggregator: Aggregator<ByDate>("medial_val_bydate.txt") {
     }
 
     private val toYearMonthDate
-            get() = { ddMMyyyy: String -> "${ddMMyyyy.substring(4)}${ddMMyyyy.substring(0..3)}" }
+            get() = { MMddyyyy: String -> "${MMddyyyy.substring(4)}${MMddyyyy.substring(0..3)}" }
 }
 
