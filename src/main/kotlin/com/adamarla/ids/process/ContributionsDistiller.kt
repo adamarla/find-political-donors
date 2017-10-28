@@ -1,9 +1,7 @@
-package com.adamarla.ids.processors
+package com.adamarla.ids.process
 
-import com.adamarla.ids.data.Contribution
-import com.adamarla.ids.data.IContributionRecordParser
+import com.adamarla.ids.parse.IContributionRecordParser
 import java.io.BufferedReader
-import java.io.BufferedWriter
 import java.io.File
 
 /**
@@ -12,7 +10,7 @@ import java.io.File
 
 class ContributionsDistiller(val parser: IContributionRecordParser) {
 
-    lateinit var aggregators: MutableList<Aggregator>
+    var aggregators = mutableListOf<Aggregator<*>>()
 
     fun process(reader: BufferedReader) =
         reader.readLines()
@@ -29,13 +27,4 @@ class ContributionsDistiller(val parser: IContributionRecordParser) {
     }
 
 }
-
-abstract class Aggregator(val fileName: String) {
-
-    abstract fun add(contribution: Contribution)
-
-    abstract fun report(writer: BufferedWriter)
-
-}
-
 

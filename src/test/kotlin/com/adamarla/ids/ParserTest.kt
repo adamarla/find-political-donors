@@ -1,6 +1,6 @@
 package com.adamarla.ids
 
-import com.adamarla.ids.data.FECRecordParser
+import com.adamarla.ids.parse.FECRecordParser
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before

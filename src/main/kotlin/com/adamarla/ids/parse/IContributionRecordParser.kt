@@ -1,4 +1,6 @@
-package com.adamarla.ids.data
+package com.adamarla.ids.parse
+
+import com.adamarla.ids.data.Contribution
 
 /**
  * Created by adamarla on 10/26/17.

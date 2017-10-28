@@ -1,5 +1,6 @@
-package com.adamarla.ids.data
+package com.adamarla.ids.parse
 
+import com.adamarla.ids.data.Contribution
 import java.time.format.DateTimeFormatter
 
 /**
