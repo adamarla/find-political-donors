@@ -27,5 +27,5 @@ Run Instructions -
   To Test -
   Test script has been modified to work as shown  
   [PROJECT_ROOT]$ cd insight_testsuite  
-  [PROJECT_ROOT]/insights_testsuite$ ./run_tests.sh
+  [PROJECT_ROOT]/insight_testsuite$ ./run_tests.sh
 
