@@ -7,6 +7,9 @@ with multiple aggregators (one each for 'By Date' and 'By Zip'). The
 aggregators are responsible for sorting/grouping the records and formatting
 them for reports.
 
+The raw input is read in using a fixed size buffer and only the information
+required to calculate medians and product the reports is kept in memory.
+
 Dependencies -
 
   To Run
