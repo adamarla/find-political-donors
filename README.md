@@ -1,10 +1,20 @@
 Welcome to my submission for Find Political Donors!
 
-Approach -
+Approach - I have used the Kotlin programming language to write this
+application. The logic is fairly straightforward - a parser tokenizes
+the input and passes it to the "distiller". The distiller is registered
+with multiple aggregators (one each for 'By Date' and 'By Zip'). These
+are responsible for aggregating the records and formatting them for
+reports.
 
 Dependencies -
+  To Run
+  - Gradle 4.1 (lesser might also work, but I haven't tried)
+  - Java 1.8 runtime
+  To Compile
+  - Kotlin 1.1.50 (or later)
 
 Run Instructions -
-
-Before submitting your solution you should summarize your approach, dependencies and run instructions (if any) in your README.
+  The run script is properly configured
+  ./run.sh
 

@@ -12,15 +12,16 @@ class ByDateAggregator: Aggregator<ByDate>("medianvals_by_date.txt") {
             Pair(contribution.recipientId, contribution.transactionDate!!)
 
     override val sortedRecords: List<ByDate>
-        get() = this.runningTotals.keys.toList()
+        get() = this.amounts.keys.toList()
                 .sortedWith(compareBy<Pair<String, String>> { it.first }.thenBy { toYearMonthDate(it.second) })
                 .map { compositeKey ->
-                        val (count, amount) = runningTotals[compositeKey]!!
-                        ByDate(compositeKey.first, compositeKey.second, Math.round(amount/count.toFloat()), count, amount) }
+                        val amountsByKey = amounts[compositeKey]!!
+                        ByDate(compositeKey.first, compositeKey.second, medianValue(amountsByKey),
+                                amountsByKey.size, amountsByKey.fold(0, { acc, i -> acc + i })) }
 
     override fun add(contribution: Contribution) {
         contribution.transactionDate?.let {
-            updateTotals(contribution.amount, compositeKey(contribution))
+            updateAmounts(contribution.amount, compositeKey(contribution))
         }
     }
 

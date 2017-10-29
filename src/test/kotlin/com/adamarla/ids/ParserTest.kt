@@ -90,9 +90,7 @@ class ParserTest {
     @Test
     fun parseCheckByField() {
         raw["By Fields"]?.let { text ->
-            val contribution = fecRecordParser.parse(text.replace("\n", ""))
-            println(contribution.toString())
-            contribution?.let {
+            fecRecordParser.parse(text.replace("\n", ""))?.let {
                 Assert.assertEquals("C00177436", it.recipientId)
                 Assert.assertEquals("30004", it.contributorZip)
                 Assert.assertEquals("01312017", it.transactionDate)

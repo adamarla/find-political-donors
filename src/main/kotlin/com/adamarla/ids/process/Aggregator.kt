@@ -1,7 +1,6 @@
 package com.adamarla.ids.process
 
 import com.adamarla.ids.data.Contribution
-import com.adamarla.ids.data.RunningTotal
 import java.io.BufferedWriter
 
 abstract class Aggregator<out T>(val fileName: String) {
@@ -20,12 +19,18 @@ abstract class Aggregator<out T>(val fileName: String) {
         writer.close()
     }
 
-    protected fun updateTotals(amount: Int, key: Pair<String, String>): RunningTotal {
-        var totals = runningTotals[key] ?: RunningTotal(0, 0)
-        totals += RunningTotal(1, amount)
-        runningTotals[key] = totals
-        return totals
+    fun medianValue(list: List<Int>): Int {
+        val sorted = list.sorted()
+        return if (sorted.size % 2 == 0) Math.round(((sorted[sorted.size/2]+sorted[sorted.size/2-1])*1f)/2)
+        else sorted[sorted.size/2]
     }
-    protected val runningTotals = mutableMapOf<Pair<String, String>, RunningTotal>() // (total, count)
+
+    protected fun updateAmounts(amount: Int, key: Pair<String, String>): List<Int> {
+        if (amounts[key] == null)
+            amounts[key] = mutableListOf()
+        amounts[key]?.add(amount)
+        return amounts[key]!!
+    }
+    protected val amounts = mutableMapOf<Pair<String, String>, MutableList<Int>>()
 
 }

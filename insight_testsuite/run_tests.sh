@@ -30,7 +30,8 @@ function find_file_or_dir_in_project {
 # check project directory structure
 function check_project_struct {
   find_file_or_dir_in_project ${PROJECT_PATH} run.sh
-  # find_file_or_dir_in_project ${PROJECT_PATH} src
+  find_file_or_dir_in_project ${PROJECT_PATH} build.gradle
+  find_file_or_dir_in_project ${PROJECT_PATH} src
   find_file_or_dir_in_project ${PROJECT_PATH} input
   find_file_or_dir_in_project ${PROJECT_PATH} output
 }
@@ -45,6 +46,7 @@ function setup_testing_input_output {
   mkdir -p ${TEST_OUTPUT_PATH}
 
   cp -r ${PROJECT_PATH}/src ${TEST_OUTPUT_PATH}
+  cp -r ${PROJECT_PATH}/build.gradle ${TEST_OUTPUT_PATH}
   cp -r ${PROJECT_PATH}/run.sh ${TEST_OUTPUT_PATH}
   cp -r ${PROJECT_PATH}/input ${TEST_OUTPUT_PATH}
   cp -r ${PROJECT_PATH}/output ${TEST_OUTPUT_PATH}

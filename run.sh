@@ -4,5 +4,7 @@
 # as shown here -PbufferSize=1024
 # the buffer size argument is optional
 #
+
+gradle build
 gradle run -PinputDir=input -PoutputDir=output
 

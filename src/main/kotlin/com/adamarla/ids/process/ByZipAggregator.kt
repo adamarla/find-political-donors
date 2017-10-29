@@ -16,9 +16,9 @@ class ByZipAggregator: Aggregator<ByZip>("medianvals_by_zip.txt") {
 
     override fun add(contribution: Contribution) {
         contribution.contributorZip?.let {
-            val totals = updateTotals(contribution.amount, compositeKey(contribution))
-            records.add(ByZip(contribution.recipientId, it,
-                    Math.round((totals.amount / totals.count).toFloat()), totals.count, totals.amount))
+            val amountsByKey = updateAmounts(contribution.amount, compositeKey(contribution))
+            records.add(ByZip(contribution.recipientId, it, medianValue(amountsByKey),
+                    amountsByKey.size, amountsByKey.fold(0, { acc, i -> acc + i })))
         }
     }
 

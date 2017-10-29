@@ -1,0 +1,4 @@
+build
+insight_testsuite/temp/
+insight_testsuite/results.txt
+insight_testsuite/.gradle
