@@ -14,13 +14,12 @@ fun main(args: Array<String>) {
         return
     }
 
-    val bufferSize: Int? = if (args.size > 2) args[2].toInt() else null
     val parser: IContributionRecordParser = FECRecordParser()
     val distiller = ContributionsDistiller(parser)
     distiller.aggregators.add(ByDateAggregator())
     distiller.aggregators.add(ByZipAggregator())
 
-    distiller.process(File(args[0]), bufferSize)
+    distiller.process(File(args[0]))
     distiller.report(File(args[1]))
 }
 

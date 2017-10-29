@@ -7,12 +7,12 @@ import java.io.File
  * Created by adamarla on 10/25/17.
  */
 
-class ContributionsDistiller(val parser: IContributionRecordParser) {
+class ContributionsDistiller(private val parser: IContributionRecordParser) {
 
     var aggregators = mutableListOf<Aggregator<*>>()
 
-    fun process(location: File, bufferSize: Int?) =
-        location.resolve("itcont.txt").bufferedReader(bufferSize = bufferSize?: DEFAULT_BUFFER_SIZE).readLines()
+    fun process(location: File) =
+        location.resolve("itcont.txt").bufferedReader().readLines()
             .map { line -> parser.parse(line) }
             .filter { it != null } // invalid inputs filtered out here
             .map { contribution ->
