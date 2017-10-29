@@ -21,11 +21,11 @@ Dependencies -
 Run Instructions -
 
   To Run -
-  The run script is configured to run from top-level project directory
+  The run script is configured to run from top-level project directory  
   ./run.sh
 
   To Test -
-  Test script has been modified to work as shown
-  cd insight_testsuite
+  Test script has been modified to work as shown  
+  cd insight_testsuite  
   ./run_tests.sh
 
