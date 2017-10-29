@@ -3,9 +3,9 @@ Welcome to my submission for Find Political Donors!
 Approach - I have used the Kotlin programming language to write this
 application. The logic is fairly straightforward - a parser tokenizes
 the input and passes it to the "distiller". The distiller is registered
-with multiple aggregators (one each for 'By Date' and 'By Zip'). These
-are responsible for aggregating the records and formatting them for
-reports.
+with multiple aggregators (one each for 'By Date' and 'By Zip'). The
+aggregators are responsible for sorting/grouping the records and formatting
+them for reports.
 
 Dependencies -
 
@@ -22,10 +22,10 @@ Run Instructions -
 
   To Run -
   The run script is configured to run from top-level project directory  
-  ./run.sh
+  [PROJECT_ROOT]$ ./run.sh 
 
   To Test -
   Test script has been modified to work as shown  
-  cd insight_testsuite  
-  ./run_tests.sh
+  [PROJECT_ROOT]$ cd insight_testsuite  
+  [PROJECT_ROOT]/insights_testsuite$ ./run_tests.sh
 
