@@ -8,13 +8,24 @@ are responsible for aggregating the records and formatting them for
 reports.
 
 Dependencies -
+
   To Run
-  - Gradle 4.1 (lesser might also work, but I haven't tried)
-  - Java 1.8 runtime
+  - Gradle 4.1
+  - Java 8 runtime
+
   To Compile
+  - Gradle 4.1 (earlier might also work, but I haven't tried)
   - Kotlin 1.1.50 (or later)
+  - JDK 1.8
 
 Run Instructions -
-  The run script is properly configured
+
+  To Run -
+  The run script is configured to run from top-level project directory
   ./run.sh
+
+  To Test -
+  Test script has been modified to work as shown
+  cd insight_testsuite
+  ./run_tests.sh
 
