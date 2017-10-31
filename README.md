@@ -1,6 +1,7 @@
-Welcome to my submission for Find Political Donors!
+# Welcome to my submission for Find Political Donors!
 
-Approach - I have used the Kotlin programming language to write this
+## Approach
+I have used the Kotlin programming language to write this
 application. The logic is fairly straightforward - a parser tokenizes
 the input and passes it to the "distiller". The distiller is registered
 with multiple aggregators (one each for 'By Date' and 'By Zip'). The
@@ -10,26 +11,28 @@ them for reports.
 The raw input is read in using a fixed size buffer and only the information
 required to calculate medians and produce the reports is kept in memory.
 
-Dependencies - They are all in the build file so should not have to worry
-about them.
+## Dependencies
+They are all in the build file so should not have to worry
+about them
 
-  To Compile
+  ### To Compile
   - Gradle 4.1 (earlier might also work, but I haven't tried)
   - Kotlin 1.1.50 (or later)
   - JDK 1.8
 
-  To Run
+  ### To Run
   - Gradle 4.1
   - Java 8 runtime
 
-Run Instructions - The run.sh script includes a call to compile
+## Run Instructions
+The run.sh script includes a call to compile  
 
-  To Run -
-  The run script is configured to run from top-level project directory
+  ### To Run
+  The run script is configured to run from top-level project directory  
   [PROJECT_ROOT]$ ./run.sh 
 
-  To Test -
+  ### To Test
   Test script has been modified to work as shown  
   [PROJECT_ROOT]$ cd insight_testsuite  
   [PROJECT_ROOT]/insight_testsuite$ ./run_tests.sh
-
+  
