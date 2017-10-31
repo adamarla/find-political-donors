@@ -8,7 +8,7 @@ aggregators are responsible for sorting/grouping the records and formatting
 them for reports.
 
 The raw input is read in using a fixed size buffer and only the information
-required to calculate medians and product the reports is kept in memory.
+required to calculate medians and produce the reports is kept in memory.
 
 Dependencies -
 
