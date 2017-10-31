@@ -10,21 +10,22 @@ them for reports.
 The raw input is read in using a fixed size buffer and only the information
 required to calculate medians and produce the reports is kept in memory.
 
-Dependencies -
-
-  To Run
-  - Gradle 4.1
-  - Java 8 runtime
+Dependencies - They are all in the build file so should not have to worry
+about them.
 
   To Compile
   - Gradle 4.1 (earlier might also work, but I haven't tried)
   - Kotlin 1.1.50 (or later)
   - JDK 1.8
 
-Run Instructions -
+  To Run
+  - Gradle 4.1
+  - Java 8 runtime
+
+Run Instructions - The run.sh script includes a call to compile
 
   To Run -
-  The run script is configured to run from top-level project directory  
+  The run script is configured to run from top-level project directory
   [PROJECT_ROOT]$ ./run.sh 
 
   To Test -
